@@ -1,0 +1,66 @@
+// P07 Vowel Movement 2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+
+#include <iostream>
+#include <string>
+#include <cstring>
+
+using namespace std;
+
+//takes in a string and a target letter and make all vowels of that string the target letter
+void vowelSwitcher(string mySentence,char targetLetter)
+{
+    char* playerSentence = (char*)mySentence.c_str(); //create a copy of my sentence
+    //string playerSentence = mySentence; //create a copy of my sentence using strings
+    char* replacedSentence = new char[strlen(playerSentence)]; //char* container to hold a sentence as long as playerSentence
+    //cout  << "Garbage? " << replacedSentence << endl;
+    //string replacedSentence = playerSentence;
+   
+    for (int i = 0; i < (strlen(playerSentence)); i++) // walk through the whole sentence, letter by letter and for each letter, do what's in the loop
+    {
+        switch (playerSentence[i]) //i hvae a letter but a bunch of options
+        {
+            case 'a':
+            case 'A':
+                replacedSentence[i] = targetLetter;
+                break;
+            case 'e':
+            case 'E':
+                replacedSentence[i] = targetLetter;
+                break;
+            case 'i':
+            case 'I':
+                replacedSentence[i] = targetLetter;
+                break;
+            case 'o':
+            case 'O':
+                replacedSentence[i] = targetLetter;
+                break;
+            case 'u':
+            case 'U':
+                replacedSentence[i] = targetLetter;
+                break;
+            default: //not a vowel
+                replacedSentence[i] = playerSentence[i]; 
+                break; 
+        }
+    }
+
+    cout << replacedSentence << "\n";
+    return;
+}
+
+int main()
+{
+    string mySentence;
+
+    cout << "Type a short sentence and we'll have a vowel movement.\n";
+    getline(cin, mySentence);
+   
+    vowelSwitcher(mySentence, 'a');
+    vowelSwitcher(mySentence, 'e');
+    vowelSwitcher(mySentence, 'i');
+    vowelSwitcher(mySentence, 'o');
+    vowelSwitcher(mySentence, 'u');
+
+    return 0;
+}
